@@ -1,3 +1,9 @@
+*,
+*::before, /* apply border-box to everything, including pseudo-elements (::before, ::after), which are CSS-generated elements */
+*::after {
+  box-sizing: border-box;
+}
+
 html {
   font-size: 16px;  /*using rem for paddings and sizings so 1rem=16px*/
   font-family: Figtree;
@@ -33,28 +39,36 @@ main {
 }
 
 .card h1 {
-  font-size: 20px;
+  font-size: clamp(1.25rem, 1rem + 1vw, 1.5rem);
 }
 
 .category {
   font-weight: bold;
   background-color: #F4D04E;
   padding: 0.25em 0.75em;
+  border-radius: 0.25rem;
 }
 
-
-
-@media (min-width: 768px) {
-  .card h1 {
-    font-size:24px;
-  }
-
-
-
+.category{
+  font-size: clamp(0.75rem, 0.75rem + 0.5vw, 0.875rem);
 }
 
+/* clamp(min, fluid, max)
+  - min: smallest size (mobile)
+  - fluid: scales with viewport (uses vw)
+  - max: largest size (desktop)
+  → creates smooth scaling between min and max */
 
+/* .image {
+  border-radius: 0.8rem;
+  overflow: auto;
+}
 
+.image img{
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+} */
 
 
 

@@ -4,6 +4,24 @@
   box-sizing: border-box;
 }
 
+:root {
+  --focus-color: #2563eb; /* accessible, high-contrast blue */
+  --focus-width: 3px;
+}
+
+/* Apply to all interactive elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: none; /* remove default outline to use custom ring */
+  box-shadow: 0 0 0 var(--focus-width) color-mix(in srgb, var(--focus-color) 40%, transparent 60%); /* soft glow */
+  border-radius: 4px; /* match component shape */
+  /* Optionally also change background/border for stronger contrast */
+  border: 2px solid var(--focus-color); /* clear visible boundary */
+}
+
 html {
   font-size: 16px;  /*using rem for paddings and sizings so 1rem=16px*/
   font-family: Figtree;
